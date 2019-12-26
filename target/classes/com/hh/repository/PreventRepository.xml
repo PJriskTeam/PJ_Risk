@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.hh.repository.PreventRepository">
+	<!-- AMB_SECTIONテーブルとバインドする -->
+	<select id="getPreventList" parameterType="PreventListForm" resultType="PreventListForm">
+		SELECT
+			AMB_ID,
+			AMB_SECT_NM, 
+			AMB_SECT_CD 
+		FROM 
+			AMB_SECTION 
+		WHERE
+			(AMB_APLEND_YMD = 21001231) 
+			AND ((AMB_ORGLYR_CD = '1')
+			OR (AMB_ORGLYR_CD = '2')) 
+		ORDER BY
+			AMB_SECT_CD
+	</select>	
+</mapper>
