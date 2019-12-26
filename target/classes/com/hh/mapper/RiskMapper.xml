@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<mapper namespace="com.hh.mapper.RiskMapper">
+	<!-- リスク予防管理検討会の結果をrisk_prevention_表から検索した -->
+	<select id="getRiskList" parameterType="String" resultType="RiskList">
+		select project_no,support_branch_id,product_sect_nm,
+			customer_name,project_name_temp,order_cd,process_no,
+			discuss_phase_no
+		FROM risk_prevention_ 
+	</select>
+	<!-- gdvuserlist 01の表からプルダウンリストを検索する -->
+	<select id="getDownList" parameterType="String" resultType="UserList">
+		select ddlBranch_id,ddlBranch,ddlDept,txtUserCd,txtFullName from gdvuserlist_01
+	</select>
+	<!-- 2つの表から社員を問い合わせてユーザーリストに表示する -->
+	<select id="gdvUserList" parameterType="UserList" resultType="UserList">
+		select g_02.lnkUserCd,g_02.lblFullName,g_02.lblBranch_id,
+			g_02.lblBranch,g_02.lblSect,g_02.lblPostCls
+		from gdvuserlist_01 AS g_01,gdvuserlist_02 AS g_02
+		WHERE g_01.ddlBranch = g_02.lblBranch 
+			and  g_01.ddlDept=g_02.lblDept
+			and  g_01.txtUserCd=g_02.lnkUserCd
+		and g_01.ddlBranch=#{ddlBranch} and	g_01.ddlDept=#{ddlDept}
+	</select>
+	<!-- gdvuserlist 02表に社員が検索した情報を問い合わせる -->
+	<select id="getUser" parameterType="String" resultType="UserList">
+		select * from gdvuserlist_02 WHERE gdvuserlist_02.lnkUserCd=#{lnkUserCd}
+	</select>
+</mapper> 
