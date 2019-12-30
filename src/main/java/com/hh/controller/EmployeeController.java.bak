@@ -38,6 +38,9 @@ public class EmployeeController {
 
 	/**
 	 * 导入jackson包 把对象转换成JSON字符串 第二稿 支持移动设备
+	 * 
+	 * @param pn
+	 * @return
 	 */
 	@RequestMapping("/emps")
 	@ResponseBody
@@ -56,6 +59,8 @@ public class EmployeeController {
 
 	/**
 	 * 展示list.jsp页面 查询员工数据（分页查询） 第一稿 用静态方法刷新的页面，支持浏览器
+	 * 
+	 * @return
 	 */
 	// @RequestMapping("/emps")
 	public String getEmps(@RequestParam(value = "pn", defaultValue = "1") Integer pn, Model model) {
