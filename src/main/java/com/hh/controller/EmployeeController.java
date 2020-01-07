@@ -25,9 +25,9 @@ import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 
 /**
- * 处理员工信息CRUD请求
+ * 従業員情報CRUDの要求を処理します。
  * 
- * @author copywang
+ * @author YuWF
  *
  */
 @Controller
@@ -36,14 +36,10 @@ public class EmployeeController {
 	@Autowired
 	private final EmployeeService employeeService;
 
-	/**
-	 * 导入jackson包 把对象转换成JSON字符串
-	 */
+	//すべてのクエリー
 	@RequestMapping("/emps")
 	@ResponseBody
 	public Msg getEmpsWithJson(@RequestParam(value = "pn", defaultValue = "1") Integer pn) {
-		// 引入PageHelper分页插件
-		// 查询前调用，传入页码和记录数
 		PageHelper.startPage(pn, 5);
 		List<Employee> emps = employeeService.getAll();
 		PageInfo pageInfo = new PageInfo(emps, 5);
@@ -52,11 +48,9 @@ public class EmployeeController {
 	}
 
 	/**
-	 * 展示list.jsp页面 查询员工数据（分页查询） 第一稿 用静态方法刷新的页面，支持浏览器
+	 * list.jspページを展示して従業員のデータを調べます。
 	 */
 	public String getEmps(@RequestParam(value = "pn", defaultValue = "1") Integer pn, Model model) {
-		// 引入PageHelper分页插件
-		// 查询前调用，传入页码和记录数
 		PageHelper.startPage(pn, 5);
 		List<Employee> emps = employeeService.getAll();
 		PageInfo pageInfo = new PageInfo(emps, 5);
@@ -66,28 +60,27 @@ public class EmployeeController {
 	}
 
 	/**
-	 * 校验用户名是否被占用
+	 * ユーザ名が占有されているかどうかを確認します。
 	 */
 	@RequestMapping(value = "/checkuser", method = RequestMethod.POST)
 	@ResponseBody
 	public Msg checkuser(@RequestParam("empName") String empName) {
-		// 判断用户名是否符合正则表达式
-
+		// ユーザ名が正規表現に合っているかどうかを判定します。
 		String regex = "(^[A-Za-z0-9]{6,16}$)|(^[\\u2E80-\\u9FFF]{2,5}$)";
 		if (!empName.matches(regex)) {
 			// System.out.println(empName.matches(regex));
-			return Msg.fail().add("va_msg", "名字必须是2-5个中文或者6-16位英文数字组合");
+			return Msg.fail().add("va_msg", "名前は2-5つの中国語または6-16桁の英語の数字の組み合わせでなければなりません。");
 		}
 
 		if (employeeService.checkuser(empName)) {
 			return Msg.success();
 		} else {
-			return Msg.fail().add("va_msg", "用户名不可用");
+			return Msg.fail().add("va_msg", "ユーザ名が使えません");
 		}
 	}
 
 	/**
-	 * 保存员工信息
+	 * 従業員の情報を保存します
 	 */
 	@RequestMapping(value = "/emp", method = RequestMethod.POST)
 	@ResponseBody
@@ -106,7 +99,7 @@ public class EmployeeController {
 	}
 
 	/**
-	 * 查询员工信息
+	 * 従業員の情報を調べる
 	 * 
 	 */
 	@RequestMapping(value = "/emp/{id}", method = RequestMethod.GET)
@@ -117,7 +110,7 @@ public class EmployeeController {
 	}
 
 	/**
-	 * 修改员工ID
+	 * 従業員IDを修正する
 	 */
 	@RequestMapping(value = "/emp/{empId}", method = RequestMethod.PUT)
 	@ResponseBody
@@ -127,7 +120,7 @@ public class EmployeeController {
 	}
 
 	/**
-	 * 批量删除员工信息:1-2-3 单个：1
+	 * 一括削除従業員情報：1-2-3単一：1
 	 */
 	@RequestMapping(value = "/emp/{ids}", method = RequestMethod.DELETE)
 	@ResponseBody
@@ -152,7 +145,7 @@ public class EmployeeController {
 	}
 
 	/**
-	 * 查询功能的查询员工信息 查询出来的员工数据分页显示
+	 * 照会機能の照会従業員情報が検索された従業員データはページ別に表示されます。
 	 */
 	@RequestMapping(value = "/queryEmps", method = RequestMethod.POST)
 	@ResponseBody
@@ -160,8 +153,6 @@ public class EmployeeController {
 			Employee employee) {
 		PageHelper.startPage(pn, 20);
 		List<Employee> emplist = employeeService.queryEmp(employee);
-		// PageInfo包装查询结果，封装了详细的分页信息和详细数据
-		// 连续显示5页
 		PageInfo pageInfo = new PageInfo(emplist, 5);
 		return Msg.success().add("pageInfo", pageInfo);
 	}
