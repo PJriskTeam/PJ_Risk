@@ -15,15 +15,15 @@ public class QualityProgressionService {
 	@Autowired
 	QualityProgressionMapper qualityProgressionMapper; 
 	
-	public List<A01M010_USER> a(String userName){
-		return qualityProgressionMapper.a(userName);
+	public List<A01M010_USER> selectAll(String userName){
+		return qualityProgressionMapper.selectAll(userName);
 	}
 	
-	public List<Project> b(){
-		return qualityProgressionMapper.b();
+	public List<Project> selectOne(){
+		return qualityProgressionMapper.selectOne();
 	}
 	
-	public List<Project> c(String orderNm,String productSectNm,String productUserFullName,String processName){
-		return qualityProgressionMapper.c(orderNm,productSectNm, productUserFullName, processName);
+	public List<Project> findByOrderNm(String orderNm,String productSectNm,String productUserFullName,String processName){
+		return qualityProgressionMapper.findByOrderNm(orderNm,productSectNm, productUserFullName, processName);
 	}
 }

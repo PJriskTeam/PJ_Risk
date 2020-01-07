@@ -11,6 +11,9 @@ import com.crud.bean.A01M010_USER;
 import com.crud.bean.Project;
 import com.crud.service.QualityProgressionService;
 
+/**
+*根据用户查询所有
+*/
 @Controller
 public class QualityProgressionController {
 	
@@ -20,18 +23,18 @@ public class QualityProgressionController {
 	@RequestMapping("/selectAll")
 	@ResponseBody
 	public List<A01M010_USER> selectAll(String userName) {
-		return qualityProgressionService.a(userName);
+		return qualityProgressionService.selectAll(userName);
 	}
 	
 	@RequestMapping("/select")
 	@ResponseBody
 	public List<Project> select() {
-		return qualityProgressionService.b();
+		return qualityProgressionService.selectOne();
 	}
 	
 	@RequestMapping("/find")
 	@ResponseBody
 	public List<Project> find(String orderNm,String productSectNm,String productUserFullName,String processName) {
-		return qualityProgressionService.c( orderNm,productSectNm, productUserFullName, processName);
+		return qualityProgressionService.findByOrderNm( orderNm,productSectNm, productUserFullName, processName);
 	}
 }
