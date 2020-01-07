@@ -34,10 +34,10 @@ import com.github.pagehelper.PageInfo;
 public class EmployeeController {
 
 	@Autowired
-	EmployeeService employeeService;
+	private final EmployeeService employeeService;
 
 	/**
-	 * 导入jackson包 把对象转换成JSON字符串 第二稿 支持移动设备
+	 * 导入jackson包 把对象转换成JSON字符串
 	 */
 	@RequestMapping("/emps")
 	@ResponseBody
@@ -45,10 +45,7 @@ public class EmployeeController {
 		// 引入PageHelper分页插件
 		// 查询前调用，传入页码和记录数
 		PageHelper.startPage(pn, 5);
-		// startPage紧跟着的这个查询就是一个分页查询
 		List<Employee> emps = employeeService.getAll();
-		// PageInfo包装查询结果，封装了详细的分页信息和详细数据
-		// 连续显示5页
 		PageInfo pageInfo = new PageInfo(emps, 5);
 
 		return Msg.success().add("pageInfo", pageInfo);
@@ -57,17 +54,12 @@ public class EmployeeController {
 	/**
 	 * 展示list.jsp页面 查询员工数据（分页查询） 第一稿 用静态方法刷新的页面，支持浏览器
 	 */
-	// @RequestMapping("/emps")
 	public String getEmps(@RequestParam(value = "pn", defaultValue = "1") Integer pn, Model model) {
 		// 引入PageHelper分页插件
 		// 查询前调用，传入页码和记录数
 		PageHelper.startPage(pn, 5);
-		// startPage紧跟着的这个查询就是一个分页查询
 		List<Employee> emps = employeeService.getAll();
-		// PageInfo包装查询结果，封装了详细的分页信息和详细数据
-		// 连续显示5页
 		PageInfo pageInfo = new PageInfo(emps, 5);
-		// 把PageInfo交给页面即可
 		model.addAttribute("pageInfo", pageInfo);
 
 		return "list";
@@ -75,9 +67,6 @@ public class EmployeeController {
 
 	/**
 	 * 校验用户名是否被占用
-	 * 
-	 * @param empName
-	 * @return
 	 */
 	@RequestMapping(value = "/checkuser", method = RequestMethod.POST)
 	@ResponseBody
@@ -99,7 +88,6 @@ public class EmployeeController {
 
 	/**
 	 * 保存员工信息
-	 * 
 	 */
 	@RequestMapping(value = "/emp", method = RequestMethod.POST)
 	@ResponseBody
@@ -137,14 +125,6 @@ public class EmployeeController {
 		employeeService.updateEmp(employee);
 		return Msg.success();
 	}
-	/*
-	 * //单个删除员工信息
-	 * 
-	 * @RequestMapping(value="/emp/{id}",method=RequestMethod.DELETE)
-	 * 
-	 * @ResponseBody public Msg deleteEmpById(@PathVariable("id")Integer id) {
-	 * employeeService.deleteEmp(id); return Msg.success(); }
-	 */
 
 	/**
 	 * 批量删除员工信息:1-2-3 单个：1
@@ -154,11 +134,6 @@ public class EmployeeController {
 	public Msg deleteEmpById(@PathVariable("ids") String ids) {
 		if (ids.contains("-")) {
 			String[] strIds = ids.split("-");
-			/*
-			 * 一种实现 for (String str : strIds) {
-			 * employeeService.deleteEmp(Integer.parseInt(str)); }
-			 */
-			// 另一种实现
 			List<Integer> del_ids = new ArrayList<Integer>();
 			for (String str : strIds) {
 				del_ids.add(Integer.parseInt(str));
@@ -183,7 +158,6 @@ public class EmployeeController {
 	@ResponseBody
 	public Msg queryEmp(@RequestParam(value = "pn", defaultValue = "1") Integer pn, 
 			Employee employee) {
-		// System.out.println(employee);
 		PageHelper.startPage(pn, 20);
 		List<Employee> emplist = employeeService.queryEmp(employee);
 		// PageInfo包装查询结果，封装了详细的分页信息和详细数据
