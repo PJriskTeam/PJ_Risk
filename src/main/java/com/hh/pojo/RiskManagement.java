@@ -347,25 +347,4 @@ public class RiskManagement
 	public void setUsernamee(String usernamee) {
 		this.usernamee = usernamee;
 	}
-	@Override
-	public String toString() {
-		return "RiskManagement [projectno=" + projectno + ", processno=" + processno + ", projectnametemp="
-				+ projectnametemp + ", customername=" + customername + ", ordercd=" + ordercd + ", relateordercd="
-				+ relateordercd + ", customertypeno=" + customertypeno + ", productsectid=" + productsectid
-				+ ", productsectcd=" + productsectcd + ", productsectnm=" + productsectnm + ", productuserid="
-				+ productuserid + ", productusercd=" + productusercd + ", productuserfullname=" + productuserfullname
-				+ ", branchtransactionflg=" + branchtransactionflg + ", supportbranchid=" + supportbranchid
-				+ ", supportbranchnm=" + supportbranchnm + ", branchqualitymanager=" + branchqualitymanager
-				+ ", sectionqualitymanager=" + sectionqualitymanager + ", groupqualitymanager=" + groupqualitymanager
-				+ ", projectqualitymanager=" + projectqualitymanager + ", riskpreventionmanager="
-				+ riskpreventionmanager + ", rpm500milflg=" + rpm500milflg + ", rpmfirstproductflg="
-				+ rpmfirstproductflg + ", firstproductno=" + firstproductno + ", rpmfirstproductcause="
-				+ rpmfirstproductcause + ", rpmspecialproductflg=" + rpmspecialproductflg + ", specialproductno="
-				+ specialproductno + ", rpmspecialproductcause=" + rpmspecialproductcause + ", rpmtype=" + rpmtype
-				+ ", smchecksheetfilename=" + smchecksheetfilename + ", projecttypeno=" + projecttypeno
-				+ ", projectcompleteflg=" + projectcompleteflg + ", createdon=" + createdon + ", createdusercd="
-				+ createdusercd + ", createduserid=" + createduserid + ", createdusernamee=" + createdusernamee
-				+ ", modifiedon=" + modifiedon + ", modifiedusercd=" + modifiedusercd + ", modifieduserid="
-				+ modifieduserid + ", modifiedusername=" + modifiedusername + ", usernamee=" + usernamee + "]";
-	}
 }
