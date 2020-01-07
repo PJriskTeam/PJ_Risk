@@ -22,7 +22,7 @@
     <!-- 注解方式 -->
     <mvc:annotation-driven/>
 	<!-- 扫描包 -->
-    <context:component-scan base-package="com.pjrisk"/>
+    <context:component-scan base-package="com.hh"/>
 	<!-- 静态资源例如css html js 图片 不经过 DispatcherServlet-->
 	<mvc:default-servlet-handler />
 

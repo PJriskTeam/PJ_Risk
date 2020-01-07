@@ -29,7 +29,7 @@
 			<tx:method name="insert*"  rollback-for="java.lang.Exception"/>
 			<tx:method name="update*"  rollback-for="java.lang.Exception"/>
 			<tx:method name="delete*" rollback-for="java.lang.Exception"/>
-			<tx:method name="select*"  rollback-for="java.lang.Exception"/>
+			<tx:method name="select*"  read-only="true"/>
 			<tx:method name="find*" read-only="true" />
 			<tx:method name="get*" read-only="true" />
 			<tx:method name="query*" read-only="true" />
@@ -37,7 +37,7 @@
 	</tx:advice>
 	<!-- 配置事务的切入点 --> 
 	<aop:config>
-		<aop:pointcut id="targetMethod" expression="execution(* com.pjrisk.service.*.*(..))" />
+		<aop:pointcut id="targetMethod" expression="execution(* com.hh.service.*.*(..))" />
 		<aop:advisor advice-ref="txAdvice" pointcut-ref="targetMethod" />
 	</aop:config>
   

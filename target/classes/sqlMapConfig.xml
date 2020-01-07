@@ -5,7 +5,7 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 <configuration>  
     <!--配置别名-->  
     <typeAliases>  
-        <package name="com.pjrisk.bean"/>
+        <package name="com.hh.bean"/>
     </typeAliases>  
       
 </configuration>  
