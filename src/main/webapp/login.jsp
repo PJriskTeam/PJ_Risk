@@ -137,7 +137,7 @@
 				</td>
 			</tr>
 		</table>
-		<input type="submit" value="检索">
+		<input type="submit" value="检索" >
 	</div>
 	</form>
 	<!-- 下两个 -->
