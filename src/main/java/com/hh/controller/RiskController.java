@@ -13,19 +13,19 @@ import com.hh.pojo.RiskList;
 import com.hh.pojo.UserList;
 import com.hh.service.RiskService;
 /**
- * Controller層
+ * Controller灞�
  * @author Wei_Chi
  *
  */
 @Controller
 public class RiskController {
-	/** 自動注入RiskService */       
+	/** 鑷嫊娉ㄥ叆RiskService */       
 	@Autowired
 	private RiskService riskService;
 	/**
-	 * 検索ボタンをクリックして、選択した情報に基づいて案件検索を行います
+	 * 妞滅储銉溿偪銉炽倰銈儶銉冦偗銇椼仸銆侀伕鎶炪仐銇熸儏鍫便伀鍩恒仴銇勩仸妗堜欢妞滅储銈掕銇勩伨銇�
 	 * @param project_no
-	 * @return riskResults_01画面
+	 * @return riskResults_01鐢婚潰
 	 */
 	@RequestMapping("/toRiskResults")
 	public ModelAndView toRiskResults(String project_no){
@@ -36,9 +36,9 @@ public class RiskController {
 		return mav;
 	}
 	/**
-	 * プルダウンメニューの一覧
+	 * 銉椼儷銉�銈︺兂銉°儖銉ャ兗銇竴瑕�
 	 * @param ddlBranch_id
-	 * @return user画面
+	 * @return user鐢婚潰
 	 */
 	@RequestMapping("/toDownList")
 	public ModelAndView toDownList(String ddlBranch_id){
@@ -49,10 +49,10 @@ public class RiskController {
 		return mav;
 	}
 	/**
-	 * 社員が情報を検索する
+	 * 绀惧摗銇屾儏鍫便倰妞滅储銇欍倠
 	 * @param userList
 	 * @param ddlBranch_id
-	 * @return user画面
+	 * @return user鐢婚潰
 	 */
 	@RequestMapping("/toRiskUserList")
 	public ModelAndView toRiskUserList(UserList userList,String ddlBranch_id){
@@ -65,9 +65,9 @@ public class RiskController {
 		return mav;
 	}
 	/**
-	 * 社員情報を取得しリスク管理画面に送信する
+	 * 绀惧摗鎯呭牨銈掑彇寰椼仐銉偣銈鐞嗙敾闈€伀閫佷俊銇欍倠
 	 * @param lnkUserCd
-	 * @return riskSort_01画面
+	 * @return riskSort_01鐢婚潰
 	 */
 	@RequestMapping("/user")
 	public ModelAndView toUser(String lnkUserCd){
