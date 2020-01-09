@@ -1,13 +1,14 @@
-package com.crud.service;
+package com.hh.service;
 
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.crud.bean.A01M010_USER;
-import com.crud.bean.Project;
-import com.crud.dao.QualityProgressionMapper;
+import com.hh.mapper.QualityProgressionMapper;
+import com.hh.pojo.A01M010_USER;
+import com.hh.pojo.Project;
+
 
 @Service
 public class QualityProgressionService {

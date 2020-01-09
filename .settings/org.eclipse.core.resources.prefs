@@ -1,2 +1,8 @@
 eclipse.preferences.version=1
+encoding//src/main/java/com/hh/controller/QualityProgressionController.java=UTF-8
+encoding//src/main/java/com/hh/mapper/EmployeeMapper.java=UTF-8
+encoding//src/main/java/com/hh/pojo/Employee.java=UTF-8
+encoding//src/main/java/com/hh/pojo/Msg.java=UTF-8
+encoding//src/main/java/com/hh/service/EmployeeService.java=UTF-8
 encoding//src/main/webapp/login.jsp=UTF-8
+encoding/<project>=UTF-8

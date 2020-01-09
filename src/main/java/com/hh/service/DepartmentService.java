@@ -1,12 +1,14 @@
-package com.crud.service;
+package com.hh.service;
 
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.crud.bean.Department;
-import com.crud.dao.DepartmentMapper;
+import com.hh.mapper.DepartmentMapper;
+import com.hh.pojo.Department;
+
+
 
 @Service
 public class DepartmentService {

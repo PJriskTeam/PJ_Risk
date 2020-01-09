@@ -1,9 +1,11 @@
-package com.crud.dao;
+package com.hh.mapper;
 
-import com.crud.bean.Employee;
-import com.crud.bean.EmployeeExample;
+
 import java.util.List;
 import org.apache.ibatis.annotations.Param;
+
+import com.hh.pojo.Employee;
+import com.hh.pojo.EmployeeExample;
 
 public interface EmployeeMapper {
     long countByExample(EmployeeExample example);
@@ -19,7 +21,7 @@ public interface EmployeeMapper {
     List<Employee> selectByExample(EmployeeExample example);
 
     Employee selectByPrimaryKey(Integer empId);
-    //新增加的2个方法，用于查询员工的时候根据员工的d_id查询显示出部门名称
+    //鏂板鍔犵殑2涓柟娉曪紝鐢ㄤ簬鏌ヨ鍛樺伐鐨勬椂鍊欐牴鎹憳宸ョ殑d_id鏌ヨ鏄剧ず鍑洪儴闂ㄥ悕绉�
     List<Employee> selectByExampleWithDept(EmployeeExample example);
 
     Employee selectByPrimaryKeyWithDept(Integer empId);

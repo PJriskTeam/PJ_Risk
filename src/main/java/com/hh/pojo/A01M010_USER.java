@@ -1,4 +1,4 @@
-package com.crud.bean;
+package com.hh.pojo;
 
 public class A01M010_USER {
 	private String a01m002AllsectNm;

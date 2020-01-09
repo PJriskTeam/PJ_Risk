@@ -1,4 +1,4 @@
-package com.crud.controller;
+package com.hh.controller;
 
 import java.util.List;
 
@@ -7,12 +7,13 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.crud.bean.A01M010_USER;
-import com.crud.bean.Project;
-import com.crud.service.QualityProgressionService;
+import com.hh.pojo.A01M010_USER;
+import com.hh.pojo.Project;
+import com.hh.service.QualityProgressionService;
+
 
 /**
-*¸ù¾ÝÓÃ»§²éÑ¯ËùÓÐ
+*ï¿½ï¿½ï¿½ï¿½ï¿½Ã»ï¿½ï¿½ï¿½Ñ¯ï¿½ï¿½ï¿½ï¿½
 */
 @Controller
 public class QualityProgressionController {

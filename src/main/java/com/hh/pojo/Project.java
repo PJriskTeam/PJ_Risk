@@ -1,4 +1,4 @@
-package com.crud.bean;
+package com.hh.pojo;
 
 public class Project {
 	private int projectNo;

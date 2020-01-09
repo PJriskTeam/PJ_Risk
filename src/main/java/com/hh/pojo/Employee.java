@@ -1,4 +1,4 @@
-package com.crud.bean;
+package com.hh.pojo;
 
 import javax.validation.constraints.Pattern;
 
@@ -7,15 +7,15 @@ import org.hibernate.validator.constraints.Email;
 public class Employee {
     private Integer empId;
     @Pattern(regexp="(^[A-Za-z0-9]{6,16}$)|(^[\\u2E80-\\u9FFF]{2,5}$)"
-    		,message="名字必须是2-5个中文或者6-16位英文数字组合")
+    		,message="鍚嶅瓧蹇呴』鏄�2-5涓腑鏂囨垨鑰�6-16浣嶈嫳鏂囨暟瀛楃粍鍚�")
     private String empName;
 
     private String gender;
-    @Email(message="邮箱格式不正确")
+    @Email(message="閭鏍煎紡涓嶆纭�")
     private String email;
 
     private Integer dId;
-    //用于查询员工的时候根据员工的d_id查询显示出部门名称
+    //鐢ㄤ簬鏌ヨ鍛樺伐鐨勬椂鍊欐牴鎹憳宸ョ殑d_id鏌ヨ鏄剧ず鍑洪儴闂ㄥ悕绉�
     private Department department;
     
     public Employee() {

@@ -1,35 +1,36 @@
-package com.crud.service;
+package com.hh.service;
 
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.crud.bean.Employee;
-import com.crud.bean.EmployeeExample;
-import com.crud.bean.EmployeeExample.Criteria;
-import com.crud.dao.EmployeeMapper;
+import com.hh.mapper.EmployeeMapper;
+import com.hh.pojo.Employee;
+import com.hh.pojo.EmployeeExample;
+import com.hh.pojo.EmployeeExample.Criteria;
+
 
 @Service
 public class EmployeeService {
 	@Autowired
 	EmployeeMapper employeeMapper; 
 	/**
-	 * 查询所有员工（分页查询）
+	 * 鏌ヨ鎵�鏈夊憳宸ワ紙鍒嗛〉鏌ヨ锛�
 	 * @return
 	 */
 	public List<Employee> getAll() {
 		return employeeMapper.selectByExampleWithDept(null);
 	}
 	/**
-	 * 保存员工
+	 * 淇濆瓨鍛樺伐
 	 * @param employee
 	 */
 	public void saveEmp(Employee employee) {
 		employeeMapper.insertSelective(employee);
 	}
 	/**
-	 * 校验用户名是否被占用
+	 * 鏍￠獙鐢ㄦ埛鍚嶆槸鍚﹁鍗犵敤
 	 * @param empName
 	 * @return
 	 */
@@ -40,7 +41,7 @@ public class EmployeeService {
 		return employeeMapper.countByExample(example) == 0;
 	}
 	/**
-	 * 修改员工信息的时候用于数据回显
+	 * 淇敼鍛樺伐淇℃伅鐨勬椂鍊欑敤浜庢暟鎹洖鏄�
 	 * @param id
 	 * @return
 	 */
@@ -49,21 +50,21 @@ public class EmployeeService {
 		 return employee;
 	}
 	/**
-	 * 修改员工信息的提交
+	 * 淇敼鍛樺伐淇℃伅鐨勬彁浜�
 	 * @param id
 	 */
 	public void updateEmp(Employee employee) {
 		employeeMapper.updateByPrimaryKeySelective(employee);
 	}
 	/**
-	 * 删除员工信息
+	 * 鍒犻櫎鍛樺伐淇℃伅
 	 * @param id
 	 */
 	public void deleteEmp(Integer id) {
 		employeeMapper.deleteByPrimaryKey(id);
 	}
 	/**
-	 * 批量删除员工
+	 * 鎵归噺鍒犻櫎鍛樺伐
 	 * @param strIds
 	 */
 	public void deleteBatchEmp(List<Integer> ids) {
@@ -74,7 +75,7 @@ public class EmployeeService {
 		employeeMapper.deleteByExample(example);
 	}
 	/**
-	 * 高级搜索功能
+	 * 楂樼骇鎼滅储鍔熻兘
 	 * @param employee
 	 * @return
 	 */

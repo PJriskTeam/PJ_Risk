@@ -1,5 +1,4 @@
-package com.crud.controller;
-
+package com.hh.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,14 +7,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.crud.bean.Department;
-import com.crud.bean.Employee;
-import com.crud.bean.Msg;
-import com.crud.service.DepartmentService;
-import com.crud.service.EmployeeService;
+import com.hh.pojo.Msg;
+import com.hh.service.DepartmentService;
+
+
+
 
 /**
- * 部門関係の要求を処理する
+ * 閮ㄩ杸闁總銇姹傘倰鍑︾悊銇欍倠
  * @author YuWF
  *
  */
@@ -24,8 +23,8 @@ public class DepartmentController {
 	@Autowired
 	private DepartmentService departmentService;
 	/**
-	 * すべての部門情報を返します。
-	 * JSONに戻ります
+	 * 銇欍伖銇︺伄閮ㄩ杸鎯呭牨銈掕繑銇椼伨銇欍��
+	 * JSON銇埢銈娿伨銇�
 	 */
 	@RequestMapping("/depts")
 	@ResponseBody
