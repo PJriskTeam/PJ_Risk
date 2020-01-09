@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 
-<mapper namespace="com.hh.mapper.RiskMapper">
+<mapper namespace="com.hh.repository.RiskMapper">
 	<!-- リスク予防管理検討会の結果をrisk_prevention_表から検索した -->
 	<select id="getRiskList" parameterType="String" resultType="RiskList">
 		select project_no,support_branch_id,product_sect_nm,
