@@ -22,7 +22,7 @@ import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import com.hh.bean.Employee;
 import com.hh.bean.Msg;
-import com.hh.service.EmployeeService;
+import com.hh.serviceImpl.EmployeeService;
 
 
 

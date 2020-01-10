@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.hh.bean.Department;
 import com.hh.bean.Msg;
-import com.hh.service.DepartmentService;
+import com.hh.serviceImpl.DepartmentService;
 
 
 /**

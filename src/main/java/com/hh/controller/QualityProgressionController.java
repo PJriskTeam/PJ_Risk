@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.hh.bean.A01M010_USER;
 import com.hh.bean.Project;
-import com.hh.service.QualityProgressionService;
+import com.hh.serviceImpl.QualityProgressionService;
 
 
 @Controller
