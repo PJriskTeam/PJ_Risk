@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<!-- namespace:名称空间，调用时候起作用 -->
+<mapper namespace="com.hh.repository.LiSiKuRepository">
+
+	<!-- id:唯一标示sql语句同mapper和service接口方法名，parameterType：参数类型，resultType：返回值类型（bean权限定名或别名） -->
+	<!-- ajxaはDB中からjspに支社を取值する  -->
+	<select id="getSiSilya" resultType="LiSiKuList">
+		SELECT distinct(A01M002_SECT_NM)  FROM A01M002_SECTION
+	</select>
+	
+	<!-- ajxaはDB中からjspに部門を取值する  -->
+	<select id="getBuMoN" resultType="LiSiKuList">
+		SELECT distinct(PRODUCT_SECT_NM) FROM PROJECT
+	</select>
+	
+	<!-- ajxaはDB中からjspプロセスを取值する  -->
+	<select id="getPuRoSeSu" resultType="LiSiKuList">
+		SELECT distinct(PROCESS_NAME) FROM PROCESS_M
+	</select>
+	
+	<!-- ajxaはDB中からjsp开催日の年を取值する  -->
+	<select id="getNeN" resultType="LiSiKuList">
+		SELECT distinct(LEFT(OPEN_DATE,4)) AS OPEN_DATE FROM risk_prevention ORDER BY OPEN_DATE ASC
+	</select>
+	
+	<!-- ajxaはDB中からjsp开催日の月を取值する  -->
+	<select id="getGaTu" resultType="LiSiKuList">
+		SELECT distinct(SUBSTRING(OPEN_DATE,-2)) AS OPEN_DATE FROM risk_prevention ORDER BY OPEN_DATE ASC
+	</select>
+</mapper>

@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<!-- namespace:名称空间，调用时候起作用 -->
+<mapper namespace="com.hh.repository.KeltuKaRepository">
+	 <!-- リスク予防管理検討会検索の結果 -->
+	 <!-- id:唯一标示sql语句同mapper和service接口方法名，parameterType：参数类型，resultType：返回值类型（bean权限定名或别名） -->
+	 <select id="getKeltuKa"  resultType="KeltuKaList">
+		SELECT
+			A.PROJECT_NO,
+			C.A01M002_SECT_NM,
+			D.PRODUCT_SECT_NM,
+			E.PROCESS_NAME,
+			F.DISCUSS_PHASE_NAME,
+			D.ORDER_CD,
+			G.A01M009_ORDER_NM,
+			D.PROJECT_NAME_TEMP,
+			I.A01M015_COMPY_NM,
+			D.CUSTOMER_NAME,
+			A.SENDER_USER_FULLNAME,
+			A.OPEN_DATE,
+			A.OPEN_ROUND,
+			A.OPEN_PLACE,
+			A.REVIEWER,
+			A.REVIEW_REMARK
+		FROM
+			RISK_PREVENTION A,
+			A01M010_USER B,
+			A01M002_SECTION C,
+			PROJECT D,
+			PROCESS_M E,
+			DISCUSS_PHASE_M F,
+			A01M009_ORDER G,
+			A01M014_ORDINFO H,
+			A01M015_COMPY I
+		WHERE
+			A.CREATED_USER_ID = B.A01M010_ID
+		AND A.PROJECT_NO = D.PROJECT_NO
+		AND A.PROCESS_NO = E.PROCESS_NO
+		AND A.DISCUSS_PHASE_NO = F.DISCUSS_PHASE_NO
+		AND D.ORDER_CD = G.A01M009_ORDER_CD
+		AND D.ORDER_CD = H.A01M014_ORDER_CD
+		AND H.A01M014_CUSTM_ID = I.A01M015_ID
+		AND C.A01M002_APLEND_YMD = 21001231
+		<!-- 支社 -->
+		AND C.A01M002_SECT_NM = #{a01m002_sect_nm}
+		<!-- 開発部 -->
+		AND D.PRODUCT_SECT_NM = #{product_sect_nm}
+		<!--  プロセス -->
+		AND E.PROCESS_NAME = #{process_name}
+		<!--  开催日時 -->
+		<!-- AND A.OPEN_DATE = #{open_date} -->
+		<!--  对象オーダ -->
+		AND D.ORDER_CD = #{order_cd}
+		ORDER BY
+			A.PROJECT_NO DESC,
+			A.SEQ_NO DESC
+	 </select>
+	 
+
+</mapper>
