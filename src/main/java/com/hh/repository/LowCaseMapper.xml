@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<mapper namespace="com.hh.repository.LowCaseMapper">
+	<select id="getLawCase" parameterType="String" resultType="LawCase">
+		select A01M002_SECT_NM,A01M002_SECT_CD , A01M002_APLSTA_YMD from a01m002_section where A01M002_SECT_NM=#{A01M002_SECT_NM}
+	</select>
+	<select id="getlist" parameterType="String" resultType="LawCase">
+		select A01M002_SECT_ALIAS from a01m002_section
+	</select>
+	<insert id="add" parameterType="LawCase">
+	   insert into a01m002_section (A01M002_SECT_NM,A01M002_SECT_CD)values(#{A01M002_SECT_NM},#{A01M002_SECT_CD})
+	</insert>
+</mapper> 

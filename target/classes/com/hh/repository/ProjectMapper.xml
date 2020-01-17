@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.hh.repository.ProjectMapper">
+
+
+<insert id="add1" parameterType="Project">
+	   insert into project (PROJECT_NO,PROJECT_NAME_TEMP,CUSTOMER_NAME,ORDER_CD,RELATE_ORDER_CD,PRODUCT_SECT_NM,PRODUCT_USER_FULLNAME,BRANCH_QUALITY_MANAGER,SECTION_QUALITY_MANAGER,GROUP_QUALITY_MANAGER)
+	   values(#{PROJECT_NO},#{PROJECT_NAME_TEMP},#{CUSTOMER_NAME},#{ORDER_CD},#{RELATE_ORDER_CD},#{PRODUCT_SECT_NM},#{PRODUCT_USER_FULLNAME},#{BRANCH_QUALITY_MANAGER},#{SECTION_QUALITY_MANAGER},#{GROUP_QUALITY_MANAGER})
+	</insert>
+	<select id="getproject"   resultType="Project">
+	select PROJECT_NO,PROJECT_NAME_TEMP , CUSTOMER_NAME,ORDER_CD,RELATE_ORDER_CD,PRODUCT_SECT_NM,PRODUCT_USER_FULLNAME,
+	BRANCH_QUALITY_MANAGER,SECTION_QUALITY_MANAGER,GROUP_QUALITY_MANAGER from project where PROJECT_NO=#{PROJECT_NO}
+	
+	</select>
+	<delete id="del"  parameterType="Project">
+	DELETE FROM project WHERE PROJECT_NO=#{PROJECT_NO}
+	</delete>
+</mapper>

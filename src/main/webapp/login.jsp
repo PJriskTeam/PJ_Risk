@@ -4,8 +4,10 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 	<head>
+	<script  src="/jQuery/jquery.min.js"></script>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
    <title>Insert title here</title>
+
 		<style type="text/css">
 			table,table tr th, table tr td { border:1px solid #000000;}
 	
@@ -13,7 +15,9 @@
 	a{font-size: 12px;
             margin: 0;
             padding: 0;}
-	
+	#henghong{
+		width: 300px;
+	}
 	
 	#id1{
 		width: 300px;
@@ -31,17 +35,13 @@
 			<a>基本情報一覧</a><br><br>
 			<a>メニュー</a><br><br>
 			<a>対象案件一覧</a>	
-			<form action="${pageContext.request.contextPath}/toDownList.action" method="post" id="form">
+			<form action="${pageContext.request.contextPath}/tologin.action" method="post" id="form">
 				<table>
 					<tr>
 						<td id="green" width="200"><label for="txtname">支社</label></td>
 						<td>
-							<select name="支社" id="id1" >
-								<option style="color: #b6b6b6" disabled selected></option>
-								<option>日本プロセス株式会社</option>
-								<option>北海道支社</option>
-								<option>東京会社</option>
-								<option>奈良会社</option>
+							<select name="A01M002_SECT_ALIAS" id="henghong">
+								<option ></option>
 							</select>
 						</td>
 					</tr>
@@ -59,11 +59,11 @@
 					</tr>
 			        <tr>
 			            <td id="green"><label for="txtname">オーダ</label></td>
-			            <td><input type="text" id="txtname" /></td>
+			            <td><input type="text" id="txtname" name="A01M002_SECT_NM"/></td>
 			        </tr>
 			        <tr>
 			            <td id="green"><label for="txtname">顧客</label></td>
-			            <td><input type="text" id="txtname"/></td>
+			            <td><input type="text" id="txtname" name="A01M002_SECT_CD"/></td>
 			        </tr>
 			        <tr>
 			        	<td id="green"><label for="txtname">管理区分</label></td>
@@ -78,8 +78,10 @@
 			        	<td><input type="checkbox">完了も含む</td>
 			        </tr>
 				</table>
+		
 				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="submit" value="案件登録">&nbsp;&nbsp;&nbsp;
 				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="submit" value="検索">
+	
 			</form>
 		</div>
 		<div>
@@ -225,4 +227,21 @@
 		</div>
 	</div>
 </body>
+	    <script type="text/javascript">
+		$(function(){
+			$.ajax({
+				type:"get",
+				url:"tolist1",
+				dateType:"json",
+				success:function(data){
+					for(var i=0; i<data。length; i++){
+					var option =$("<option>");	
+					$(option)。text(data[i]。A01M002_SECT_ALIAS);
+                    $("#henghong").append(option);
+					}
+				}
+					})
+			}
+	
+	</script> 
 </html>
